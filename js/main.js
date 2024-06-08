@@ -1,4 +1,4 @@
-
+const count = document.querySelector("#count");
 const cookieCart = JSON.parse(localStorage.getItem("cookieCart")) || [];
 
 
@@ -7,7 +7,7 @@ const cookieInventory = [
         id: 0,
         cookie: "MonsterChip",
         price: 1.5,
-        img: "https://imgs.search.brave.com/FYCe2yVgpxWuw9RlSCi6IZB7nTDb88kYDDT_raQTX4k/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9saWxs/dW5hLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxMy8xMC9n/b29leS1tb250ZXIt/Y29va2llcy1yZXNp/emUtNy5qcGc",
+        img: "https://imgs.search.brave.com/32jDi8MBxvuJrnZyjnBwf6lFmwQni2sjH1c8AZfYBso/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/ZG9udHN3ZWF0dGhl/cmVjaXBlLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMi8w/OS9oYWxsb3dlZW4t/bW9uc3Rlci1jb29r/aWVzLTIyLTc2OHgx/MDI0LmpwZw",
         description: "Sumérgete en el mundo de los monstruos con nuestras MonsterChip, deliciosas galletas de chocolate con trozos de chocolate oscuro y blanco. Crujientes por fuera y suaves por dentro, estas galletas son un verdadero festín para cualquier monstruo hambriento.",
     },
     {
@@ -40,9 +40,77 @@ const cookieInventory = [
     },
 ];
 
+const cookieBase = [
+    {
+        id: 0,
+        base: "Vainilla",
+    },
+    {
+        id: 1,
+        base: "Chocolate",
+    },
+    {
+        id: 2,
+        base: "Red Velvet",
+    },
+    {
+        id: 3,
+        base: "Canela",
+    },
+    {
+        id: 4,
+        base: "Mantequilla de Maní",
+    },
+];
+
+
+const cookieAddOns = [
+    {
+        id: 0,
+        addOn: "Chispas de Chocolate",
+    },
+    {
+        id: 1,
+        addOn: "Avena",
+    },
+    {
+        id: 3,
+        addOn: "Fruta",
+    },
+    {
+        id: 4,
+        addOn: "Canela",
+    },
+    {
+        id: 5,
+        addOn: "Fudge",
+    },
+];
+
+
 function addYourCookie(id) {
     const cookieSelection = cookieInventory.find(el => el.id === id);
-    cookieCart.push(cookieSelection);
-    console.log(cookieCart);
-    localStorage.setItem("cookieCart", JSON.stringify(cookieCart));
+    if (cookieCart.some(el => el.id === cookieSelection)) {
+        const cookieIndex = cookieCart.findIndex(el => el.id === cookieSelection);
+        cookieCart[index].cookieQuantity++;
+    } else {
+        cookieSelection.cookieQuantity = 1;
+        cookieCart.push(cookieSelection);
+        localStorage.setItem("cookieCart", JSON.stringify(cookieCart));
+        console.log(cookieCart);
+    };
+    updateCartNumber();
+};
+
+
+function updateCartNumber() {
+    let cookieCount = cookieCart.reduce((acc, el) => acc + el.cookieQuantity, 0);
+    count.innerText = cookieCount;
+};
+
+
+function deleteYourCookie(id) {
+    let deletedCookie = cookieCart.filter(el => el.id !== id);
+    localStorage.setItem("cookieCart", JSON.stringify(deletedCookie));
+    cookieCart = deletedCookie;
 };

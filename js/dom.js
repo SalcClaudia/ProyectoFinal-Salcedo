@@ -1,9 +1,9 @@
-const cardMenu = document.getElementById("menu-container");
+
+/*const cardMenu = document.getElementById("menu-container");
 
 function cookieCard(cookies) {
 
     const listMenu = document.createElement("div");
-    listMenu.className = "listMenu";
 
     const cookieTitle = document.createElement("h4");
     cookieTitle.innerText = cookies.cookie;
@@ -34,9 +34,11 @@ function cookieCard(cookies) {
     cardMenu.appendChild(cookieButton);
 
     cardMenu.appendChild(listMenu);
+
 };
 
-cookieInventory.forEach(el => cookieCard(el));
+cookieInventory.forEach(el => cookieCard(el));*/
+
 
 
 const createYourMonster = document.getElementById("monster-button");
@@ -47,9 +49,29 @@ cookieAlert.className = "createcookie";
 cookieAlert.onclick = () => Swal.fire({
     position: "top-end",
     icon: "success",
-    title: "Your work has been saved",
+    title: "¡Tu mounstro vive!",
     showConfirmButton: false,
     timer: 1500
 });
 
 createYourMonster.appendChild(cookieAlert);
+
+
+/*function cardIntro(){
+const containerIntroduction = document.getElementById("container-intro");
+const cardIntroduction = document.getElementById("card-intro");
+const intro = document.getElementById("introduction");
+
+const cookieSection = document.createElement("section");
+cookieSection.className = "cookieSection";
+
+const cookieDiv = document.createElement("div");
+cookieDiv.className = "cookieDiv";
+
+const cookieIntro = document.createElement("p");
+cookieIntro.innerText = "En Monsters & Cookies, creemos que cada galleta debe ser una aventura deliciosa y divertida. Nuestros monstruos hornean las galletas más sabrosas y espeluznantes que jamás hayas probado.";
+
+containerIntroduction.appendChild(cookieSection);
+cardIntroduction.appendChild(cookieDiv);
+intro.appendChild(cookieIntro);
+};*/

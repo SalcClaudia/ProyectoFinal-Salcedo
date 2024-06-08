@@ -16,6 +16,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <title>Monsters & Cookies</title>
 
 </head>
@@ -30,18 +35,21 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active text-light bg-dark" aria-current="page" href="#menu">Menú</a>
+                        <a class="nav-link active text-light bg-dark" aria-current="page" href="#menu">Menú <i
+                                class="bi bi-book"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light bg-dark" href="#monstercookie">Monster Cookie</a>
+                        <a class="nav-link text-light bg-dark" href="#monstercookie">Monster Cookie <i
+                                class="bi bi-cookie"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light bg-dark" href="#seeorder">Visualizar pedido</a>
+                        <a class="nav-link text-light bg-dark" href="pages/cart.html">Visualizar pedido <i
+                                class="bi bi-arrow-90deg-right"></i></a>
                     </li>
                 </ul>
                 <div class="my-cart">
                     <img src="assets/shopping-cart.png" alt="shopping-cart">
-                    <span class="quantity">0</span>
+                    <span class="quantity" id="count"></span>
                 </div>
             </div>
         </section>
@@ -53,12 +61,85 @@
             <h1 class="title">¡Bienvenido a Monsters & Cookies!</h1>
         </section>
 
-
-        <section>
-            <div class="title-containers">
-                <h2 class="cookie-titles" id="menu">Nuestro menú</h2>
-            </div>
+        <section class="container-intro">
+            <h3 class="introduction">En Monsters & Cookies, creemos que cada galleta debe ser una aventura deliciosa
+                y divertida. Nuestros monstruos hornean las galletas más sabrosas y espeluznantes que jamás hayas
+                probado.</h3>
         </section>
+
+
+
+        <section class="title-containers">
+            <h2 class="cookie-titles" id="menu">Nuestro menú</h2>
+        </section>
+
+        <div id="menu-container">
+            <div class="container-image">
+                <img class="cookie-image"
+                    src="https://imgs.search.brave.com/32jDi8MBxvuJrnZyjnBwf6lFmwQni2sjH1c8AZfYBso/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/ZG9udHN3ZWF0dGhl/cmVjaXBlLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMi8w/OS9oYWxsb3dlZW4t/bW9uc3Rlci1jb29r/aWVzLTIyLTc2OHgx/MDI0LmpwZw"
+                    alt="">
+            </div>
+            <div class="cookie-container">
+                <h3 class="title-cookie">MonsterChip</h3>
+                <p class="price">$1,5</p>
+                <button class="button-select">Seleccionar</button>
+            </div>
+
+            <div class="cookies">
+                <img class="cookie-image"
+                    src="https://imgs.search.brave.com/aia_6kRiXWB5TIf6VpN3gAuRpynK2FEwHr8Ku6Fb66s/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90b2dl/dGhlcmFzZmFtaWx5/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAxOC8wNy9tb25z/dGVyLWNvb2tpZXMt/cmVjaXBlLTEuanBn"
+                    alt="">
+            </div>
+            <div class="cookie-container">
+                <h3 class="title-cookie">Spots & Strawberries</h3>
+                <p class="price">$1,5</p>
+                <button class="button-select">Seleccionar</button>
+            </div>
+
+            <div class="cookies">
+                <img class="cookie-image"
+                    src="https://imgs.search.brave.com/FRLiYRSjT0bdlOg_GtS48SSIsmpduktUjhyDMpyUmZw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vd3d3LmF0/YXN0ZW9mbWFkbmVz/cy5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMTkvMTAvQ2hv/Y29sYXRlLU1vbnN0/ZXItQ29va2llcy0x/LTEuanBnP3Jlc2l6/ZT02ODEsMTAyNCZz/c2w9MQ"
+                    alt="">
+            </div>
+            <div class="cookie-container">
+                <h3 class="title-cookie">Vampire Velvet Cookies</h3>
+                <p class="price">$1,5</p>
+                <button class="button-select">Seleccionar</button>
+            </div>
+
+            <div class="cookies">
+                <img class="cookie-image"
+                    src="https://imgs.search.brave.com/ItOmsnyKtTReb7Z9GLqcgFRCmaOBDbVcNs_pIy4IviE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zcC1h/by5zaG9ydHBpeGVs/LmFpL2NsaWVudC90/b193ZWJwLHFfZ2xv/c3N5LHJldF9pbWcs/d180NjcsaF83MDAv/aHR0cHM6Ly9wYXJl/bnRpbmdjaGFvcy5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTUvMTAvYmxvb2Qt/c2hvdC1leWUtY3Vw/LWNha2VzLTQ2N3g3/MDAuanBn"
+                    alt="">
+            </div>
+            <div class="cookie-container">
+                <h3 class="title-cookie">Zombie Brain Bites</h3>
+                <p class="price">$1,5</p>
+                <button class="button-select">Seleccionar</button>
+            </div>
+
+            <div class="cookies">
+                <img class="cookie-image"
+                    src="https://imgs.search.brave.com/UbYMYPacBB6nBwAR3xPMtggOSk9BuEY5S11d4LZYFwU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL2htZy1wcm9k/L2ltYWdlcy9oYWxs/b3dlZW4tY29va2ll/cy1naG9zdC0xNTMw/ODkxNDE4LmpwZz9j/cm9wPTEuMDB4dzow/LjgzNHhoOzAsMC4w/MTU5eGgmcmVzaXpl/PTk4MDoq"
+                    alt="">
+            </div>
+            <div class="cookie-container">
+                <h3 class="title-cookie">Mummy's Peanut Butter Fingers</h3>
+                <p class="price">$1,5</p>
+                <button class="button-select">Seleccionar</button>
+            </div>
+            <div class="cookies">
+                <img class="cookie-image"
+                    src="https://imgs.search.brave.com/8Ojxk_PYBAnJiOXZUGb3Lz0eem2pVPSIeE1BvE5LHNE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9wdWJs/aXNoLnB1cmV3b3cu/bmV0L3dwLWNvbnRl/bnQvdXBsb2Fkcy9z/aXRlcy8yLzIwMjEv/MDkvaGFsbG93ZWVu/LWNvb2tpZXMtZGVj/b3JhdGVkLWhhbGxv/d2Vlbi1zdWdhci1j/b29raWVzLTE2Lmpw/ZWc_Zml0PTY4MCw4/NjA"
+                    alt="">
+            </div>
+            <div class="cookie-container">
+                <h3 class="title-cookie">Monsters & Bats</h3>
+                <p class="price">$1,5</p>
+                <button class="button-select">Seleccionar</button>
+            </div>
+        </div>
+
 
         <section id="monstercookie">
             <div class="title-containers">
@@ -75,8 +156,8 @@
 
     </main>
 
-    <footer>
-
+    <footer class="footer">
+        <p class="footer">ⓒ 2024 SalcClaudia</p>
     </footer>
 
     <!--Javascript Script-->
@@ -84,9 +165,8 @@
     <script src="js/dom.js"></script>
     <!--Bootstrap Script-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous">
-    </script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
