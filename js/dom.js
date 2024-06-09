@@ -1,77 +1,50 @@
 
-/*const cardMenu = document.getElementById("menu-container");
+const cardMenu = document.querySelector("#menu-container");
 
-function cookieCard(cookies) {
+function mainCookieCard(cookies) {
 
-    const listMenu = document.createElement("div");
-
-    const cookieTitle = document.createElement("h4");
-    cookieTitle.innerText = cookies.cookie;
-    cookieTitle.className = "cookieTitle";
+    const divMenu = document.createElement("div");
+    divMenu.className = "container-image";
 
     const cookieImg = document.createElement("img");
     cookieImg.src = cookies.img;
     cookieImg.alt = "MonsterChip";
-    cookieImg.className = "cookieImg";
+    cookieImg.className = "cookie-image";
+
+    const containerCookie = document.createElement("div");
+    containerCookie.className = "cookie-container";
+
+    const titleCookie = document.createElement("h3");
+    titleCookie.className = "title-cookie";
+    titleCookie.innerText = cookies.cookie;
 
     const cookiePrices = document.createElement("p");
     cookiePrices.innerText = `$${cookies.price}`;
-    cookiePrices.className = "cookiePrices";
-
-    const cookieText = document.createElement("p");
-    cookieText.innerText = cookies.description;
-    cookieText.className = "cookieText";
+    cookiePrices.className = "price";
 
     const cookieButton = document.createElement("button");
     cookieButton.innerText = "Seleccionar"
-    cookieButton.className = "cookieButton";
+    cookieButton.className = "button-select";
     cookieButton.onclick = () => addYourCookie(cookies.id);
+    cookieButton.onclick = () => Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "¡Tu mounstro vive!",
+        showConfirmButton: false,
+        timer: 1500
+    });
+    containerCookie.appendChild(titleCookie);
+    containerCookie.appendChild(cookiePrices);
+    containerCookie.appendChild(cookieButton);
 
-    cardMenu.appendChild(cookieTitle);
-    cardMenu.appendChild(cookieImg);
-    cardMenu.appendChild(cookiePrices);
-    cardMenu.appendChild(cookieText);
-    cardMenu.appendChild(cookieButton);
+    divMenu.appendChild(cookieImg);
+    divMenu.appendChild(containerCookie);
 
-    cardMenu.appendChild(listMenu);
+    cardMenu.appendChild(divMenu);
 
 };
 
-cookieInventory.forEach(el => cookieCard(el));*/
+cookieInventory.forEach(el => mainCookieCard(el));
 
 
 
-const createYourMonster = document.getElementById("monster-button");
-
-const cookieAlert = document.createElement("button");
-cookieAlert.innerText = "Crear";
-cookieAlert.className = "createcookie";
-cookieAlert.onclick = () => Swal.fire({
-    position: "top-end",
-    icon: "success",
-    title: "¡Tu mounstro vive!",
-    showConfirmButton: false,
-    timer: 1500
-});
-
-createYourMonster.appendChild(cookieAlert);
-
-
-/*function cardIntro(){
-const containerIntroduction = document.getElementById("container-intro");
-const cardIntroduction = document.getElementById("card-intro");
-const intro = document.getElementById("introduction");
-
-const cookieSection = document.createElement("section");
-cookieSection.className = "cookieSection";
-
-const cookieDiv = document.createElement("div");
-cookieDiv.className = "cookieDiv";
-
-const cookieIntro = document.createElement("p");
-cookieIntro.innerText = "En Monsters & Cookies, creemos que cada galleta debe ser una aventura deliciosa y divertida. Nuestros monstruos hornean las galletas más sabrosas y espeluznantes que jamás hayas probado.";
-
-containerIntroduction.appendChild(cookieSection);
-cardIntroduction.appendChild(cookieDiv);
-intro.appendChild(cookieIntro);
-};*/
